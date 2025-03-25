@@ -1,5 +1,6 @@
 package meu.curso.microservicos.springboot_microservices.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -13,6 +14,7 @@ public class ItemRequest {
 
     @ManyToOne // Um pedido pode ter vários itens
     @JoinColumn(name = "request_id")
+    @JsonBackReference
     private Request request;
 
     public Long getId() {
