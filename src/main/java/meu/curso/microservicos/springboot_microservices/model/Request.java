@@ -1,5 +1,6 @@
 package meu.curso.microservicos.springboot_microservices.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -13,6 +14,7 @@ public class Request {
     private String description;
 
     @OneToMany(mappedBy = "request", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<ItemRequest> items;
 
     public Long getId() {
